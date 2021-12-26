@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon-luk4x.ico" type="image/x-icon">
+    <title>My Dolars</title>
+    <style>
+        body {
+            margin: 0px;
+            text-align: center;
+            background-color: #323232;
+        }
+
+        img {
+            width: 70%;
+        }
+
+        h1 {
+            color: #cfff00;
+            font-size: 3em;
+        }
+
+        input {
+            width: 150px;
+            height: 30px;
+            padding-left: 10px;
+            border-radius: 5px;
+        }
+
+        input#real {
+            border: 3px solid #cfff00;
+        }
+
+        input#dolar {
+            border: 3px solid red;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            color: whitesmoke;
+        }
+
+        button {
+            width: 200px;
+            height: 60px;
+            border: 3px solid #cfff00;
+            border-radius: 5px;
+            background-color: transparent;
+            color: white;
+            font-size: 1.3em;
+        }
+
+        button:hover {
+            background-color: #cfff00;
+            color: #323232;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <img src="my-dolar.gif" alt="money gif">
+    <h1>My Dolars</h1>
+    <input type="number" name="real" id="real" placeholder="Valor em real..">
+    <input type="number" name="dolar" id="dolar" placeholder="Valor atual do dolar..">
+    <h2 id="resu-tela">$0</h2>
+    <button onclick="converter()">Converter</button>
+</body>
+<script>
+    function converter() {
+        num1 = document.getElementById('real').value
+        num2 = document.getElementById('dolar').value
+        resu = num1/num2
+        resu_tela = document.getElementById('resu-tela')
+        resu_tela.innerHTML = `$${resu.toFixed(2)}`
+    }
+</script>
+</html>
