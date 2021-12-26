@@ -1,2 +1,2 @@
-# real-em-dolar
-Conversor de Real em Dolar usando JavaScript, HTML5 e CSS3.
+# Conversor de Real em Dolar
+Usando JavaScript, HTML5 e CSS3.
