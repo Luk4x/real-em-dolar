@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon-luk4x.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="faviconl.ico" type="image/x-icon">
     <title>My Dolars</title>
     <style>
+        * {
+            outline: none;
+        }
+
         body {
             margin: 0px;
             text-align: center;
@@ -57,23 +61,47 @@
             color: #323232;
             cursor: pointer;
         }
+
+        button:active {
+            transform: translateY(2px);
+        }
     </style>
 </head>
 <body>
-    <img src="my-dolar.gif" alt="money gif">
+    <img src="./images/my-dolar.gif" alt="money gif">
     <h1>My Dolars</h1>
     <input type="number" name="real" id="real" placeholder="Valor em real..">
     <input type="number" name="dolar" id="dolar" placeholder="Valor atual do dolar..">
-    <h2 id="resu-tela">$0</h2>
+    <h2 id="resu">$0</h2>
+    <aside id="resu-p">
+
+    </aside>
     <button onclick="converter()">Converter</button>
 </body>
 <script>
     function converter() {
         num1 = document.getElementById('real').value
         num2 = document.getElementById('dolar').value
-        resu = num1/num2
-        resu_tela = document.getElementById('resu-tela')
-        resu_tela.innerHTML = `$${resu.toFixed(2)}`
+        resuj = document.getElementById('resu')
+        resu_p = document.getElementById('resu-p')
+        resu_p.innerHTML = ''
+        if (num1.length==0 || num2.length==0) {
+            resuj.innerHTML = 'Digite algum valor!'    
+        } else if (num1<=0 || num2<=0) {
+            resuj.innerHTML = 'Não digite 0 ou valores abaixo dele!'
+        } else if (num2<4) {
+            resuj.innerHTML = 'Dolar abaixo de 4!?'
+            var image = document.createElement('img')
+            image.setAttribute('id', 'meme')
+            image.setAttribute('src', 'images/thanos_meme.jpeg')
+            resu_p.appendChild(image).style.width = '225px'
+            resu_p.appendChild(image).style.height = '224px'
+            resu_p.appendChild(image).style.borderRadius = '5px'
+            resu_p.appendChild(image).style.marginBottom = '33px'
+        } else {
+            resu_s = num1/num2
+            resuj.innerHTML = `$${resu_s.toFixed(2)}`
+        }
     }
 </script>
 </html>
